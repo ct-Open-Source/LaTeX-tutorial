@@ -1,0 +1,97 @@
+\documentclass[12pt,a5paper,landscape]{article}
+\usepackage[a5paper,margin=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath} % für Mathematik
+\usepackage{fancybox} % für shadowbox
+\usepackage{rotating} % für turn-Umgebung
+
+\RenewCommandCopy{\Hat}{\hat}
+\usepackage{realhats} % für Hüte auf Buchstaben
+
+% Für die kreative Darstellung von Pi
+% Quelle: https://tex.stackexchange.com/questions/208426/how-do-i-display-pi-in-latex-like-don/208428#208428
+
+\usepackage{scalerel}
+\newlength\curht
+\newlength\zshft
+\newcounter{letcount}
+\def\defaultdimfrac{.98}
+\def\slantvalue{0}
+\zshft=0pt\relax
+\def\defaultstartht{\baselineskip}
+\newcommand\diminish[2][\defaultdimfrac]{%
+  \curht=\defaultstartht\relax
+  \def\dimfrac{#1}%
+  \setcounter{letcount}{0}
+  \diminishhelpA{#2}%
+}
+\newcommand\diminishhelpA[1]{%
+  \expandafter\diminishhelpB#1\relax%
+}
+\def\diminishhelpB#1#2\relax{%
+  \raisebox{\value{letcount}\zshft}{\scaleto{\strut\slantbox{#1}}{\curht}}%
+  \stepcounter{letcount}%
+  \curht=\dimfrac\curht\relax%
+  \ifx\relax#2\relax\else\diminishhelpA{#2}\fi%
+}
+\newsavebox{\foobox}
+\newcommand{\slantbox}[2][\slantvalue]{\mbox{%
+        \sbox{\foobox}{#2}%
+        \hskip\wd\foobox
+        \pdfsave
+        \pdfsetmatrix{1 0 #1 1}%
+        \llap{\usebox{\foobox}}%
+        \pdfrestore
+}}
+
+\begin{document}
+
+\thispagestyle{empty}
+\large
+
+\vspace{1cm}
+\noindent
+Manchmal \raisebox{2mm}{möchte} \raisebox{4mm}{Text} \raisebox{2mm}{wie}
+eine \raisebox{-2mm}{Schlange} sein.
+
+\vspace{-0.5cm}
+\noindent
+\begin{flushright}
+    Dieser Test sieht ganz schön \begin{sideways} doof \end{sideways} aus.
+\end{flushright}
+
+\begin{center}
+   \def\pinum{3.14159265358979323846264338327950288419716939937510}
+    \def\slantvalue{.35}
+    \zshft=.4pt\relax
+    \def\defaultstartht{38pt}
+    Das ist $\pi$: \diminish[0.92]{\pinum} 
+\end{center}
+
+\noindent
+In der Mathematik haben Buchstaben manchmal \textbf{Hüte}. Doch nicht nur langweilige, wie diesen $\Hat{x}$. Manchmal sind die Buchstaben in Weihnachtsstimmung, $\hat[santa]{x}$, manchmal feiern sie Halloween, $\hat[witch]{x}$, und manchmal machen sie sich schick, $\hat[tophat]{x}$.
+
+\vspace{1cm}
+\noindent
+\parbox[b]{15mm}{Hier purzelt eine kleine Box}
+\begin{turn}{-60}
+  \parbox[b]{15mm}{Hier purzelt eine kleine Box}
+\end{turn}
+\begin{turn}{-120}
+  \parbox[b]{15mm}{Hier purzelt eine kleine Box}
+\end{turn}
+\begin{turn}{-180}
+  \parbox[b]{15mm}{Hier purzelt eine kleine Box}
+\end{turn}
+\begin{turn}{-240}
+  \parbox[b]{15mm}{Hier purzelt eine kleine Box}
+\end{turn}
+\begin{turn}{-300}
+  \parbox[b]{15mm}{Hier purzelt eine kleine Box}
+\end{turn}
+\begin{turn}{-360}
+  \parbox[b]{15mm}{Hier purzelt eine kleine Box}
+\end{turn}
+  
+\end{document}
