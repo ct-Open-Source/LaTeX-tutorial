@@ -8,3 +8,8 @@
 *.fdb_latexmk
 *.pdf
 *.synctex
+*.run.xml
+*.lot
+*.lof
+*.blg
+*.bcf

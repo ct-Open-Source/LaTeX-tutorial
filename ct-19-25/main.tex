@@ -1,0 +1,89 @@
+\documentclass[12pt, a4paper]{book}
+% \documentclass{scrbook}   % KOMA-Script Alternative
+\usepackage[T1]{fontenc}    % Für korrekten Input und Output mit Sonderzeichen
+\usepackage[ngerman]{babel} % Für deutsche Rechtschreibung
+\usepackage{appendix}       % Für Anhänge
+\usepackage{graphicx}       % Um Bilder einzufügen
+\usepackage{lipsum}         % Für Blindtext
+\usepackage{booktabs}       % Für feinere Tabellen-Einstellungen
+\usepackage[
+      colorlinks,
+      citecolor=black,
+      filecolor=black,
+      linkcolor=black,
+      urlcolor=black
+      ] {hyperref}          % Für klickbare Links in Referenzen
+\usepackage{biblatex}       % Für das Literaturverzeichnis
+\bibliography{references}   % Einbinden der Referenzliste
+\usepackage[Rejne]{fncychap}% Für kreative Kapitelmarker
+\usepackage{titling}        % Für Definition einer eigenen Titelseite
+\usepackage{xcolor}         % Adding extra colours
+
+% Definitionen
+
+\newcommand{\figref}[1]{Abb.~\ref{#1}}
+
+% Persönliche Angaben
+
+\title{Titel der Arbeit}
+\author{Sabrina Patsch}
+\date{\today}
+
+% Definition der Titelseite
+
+\renewcommand{\maketitle}{
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\vspace{20pt}
+	\begin{center}
+	\Huge \textbf{\textcolor{violet}{\thetitle}} \\
+	\vspace{20pt}
+    \Large Dissertation
+    \normalsize \\
+	\vspace{30pt}
+	\textsc{Der Miskatonic University \\
+    zur \\
+    Erlangung des Doktorgrades \\
+    \vspace{20pt}
+	Dr. rer. mag. \\
+    \vspace{20pt}
+    \includegraphics[width=7cm]{images/uni-logo.jpg}\\
+	\vspace{20pt}
+	vorgelegt von \\
+	\vspace{20pt}
+	\theauthor \\
+	\vspace{20pt}
+	aus Miskatonic
+	}
+	\end{center} \vspace*{\fill}
+}
+
+% Inhalt des Dokuments
+
+\begin{document}
+
+\maketitle          % Titelseite
+
+\tableofcontents    % Inhaltsverzeichnis
+\listoffigures      % Abbildungsverzeichnis
+\listoftables       % Tabellenverzeichnis
+
+% Einbinden der Kapitel
+
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+
+% Einbinden des Anhangs
+
+\begin{appendices}
+    \pagenumbering{Roman}
+    \include{chapters/appendixA}
+\end{appendices}
+
+% Literaturverzeichnis
+
+\phantomsection
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\printbibliography
+
+\end{document}
