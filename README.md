@@ -11,6 +11,10 @@ In der c't 16/25 erschien [ein Einführungsartikel über LaTeX](https://www.heis
 
 ## c't 19/25: Features für lange Texte in $\LaTeX$
 
-In der c't 19/25 erscheint voraussichtlich ein Text, der Befehle für lange Texte, wie Abschlussarbeiten, Bücher oder Berichte, vorstellt. Darin wird ein Beispieldokument mit verschiedenen Dateien erstellt, das sich etwa für eine Abschlussarbeit eignet.
+In der c't 19/25 erschien der Text ["Große Gedanken stilvoll gesetzt"](https://www.heise.de/ratgeber/Textsatz-mit-LaTeX-Tipps-und-Tricks-fuer-lange-Texte-10489465.html), der Befehle für lange Texte, wie Abschlussarbeiten, Bücher oder Berichte, vorstellt. Darin wird ein Beispieldokument mit verschiedenen Dateien erstellt, das sich etwa für eine Abschlussarbeit eignet.
+
+## c't 2026: Briefe schreiben mit $\LaTeX$
+
+In einer der kommenden c't Ausgaben wird ein Text erscheinen, der die Erstellung von Briefen mit $\LaTeX$ erklärt.
 
 Weitere Artikel folgen.

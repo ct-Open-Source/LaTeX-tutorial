@@ -1,0 +1,51 @@
+% main.tex
+\documentclass{scrlttr2} % KOMA-Script-Briefklasse
+
+% --- Umschaltbarer Ton für die Schlussformel ---
+% true  = formaler Ton, false = freundschaftlicher Ton
+\newif\ifformal
+\formaltrue % oder: \formalfalse
+
+% --- Einbinden der Layout-Datei (.lco) ---
+\LoadLetterOption{letter}
+
+% --- PDF-Metadaten und klickbare Links ---
+\usepackage[pdfauthor={Bilbo Beutlin},
+            pdftitle={Einladung zum Tee},
+            pdfsubject={Persönlicher Brief}]{hyperref}
+
+% --- Kundennummer. Weitere Optionen: yourref, myref, yourmail, invoice ---
+\setkomavar{customer}{00001}
+\setkomavar*{customer}{Magier-Nr.} % Default: Kundennummer
+
+% --- Ort und Datum ---
+\setkomavar{place}{Hobbingen}
+\setkomavar{date}[Datum A.Z.]{\today} %Default: Datum
+
+% --- Betreff ---
+\setkomavar{subject}{Einladung zum Tee}
+
+% --- Brief ---
+\begin{document}
+
+\begin{letter}{% Adressat
+Gandalf der Graue\\
+Irgendwo in Mittelerde}
+
+\opening{Lieber Gandalf,}
+
+% Inhalt des Briefs
+hiermit lade ich dich herzlich zu einem gemütlichen Tee ein.
+Bitte bring Zeit und gute Geschichten mit.
+
+\lipsum[2-4] % Blindtext
+
+\closing{\myclosing} % Schlussformel und Unterschrift
+
+\encl{Kuchenliste, Fotos aus Hobbingen} % Anlagen
+
+\ps{PS: Bitte bring Lembas mit!} % PS
+
+\end{letter}
+
+\end{document}
