@@ -2,7 +2,6 @@
 
 % --- Zeichencodierung und Schriftkodierung (für pdfLaTeX) ---
 \usepackage[T1]{fontenc}    % Korrekte Silbentrennung und Ausgabe
-\usepackage[utf8]{inputenc} % UTF-8-Eingabe
 
 % --- Weitere Pakete ---
 \usepackage[ngerman]{babel} % für deutsche Befehle im Text, zB Datum
