@@ -1,18 +1,11 @@
 % main.tex
 \documentclass{scrlttr2} % KOMA-Script-Briefklasse
 
-% --- Umschaltbarer Ton für die Schlussformel ---
-% true  = formaler Ton, false = freundschaftlicher Ton
-\newif\ifformal
-\formaltrue % oder: \formalfalse
-
 % --- Einbinden der Layout-Datei (.lco) ---
 \LoadLetterOption{letter}
 
-% --- PDF-Metadaten und klickbare Links ---
-\usepackage[pdfauthor={Bilbo Beutlin},
-            pdftitle={Einladung zum Tee},
-            pdfsubject={Persönlicher Brief}]{hyperref}
+% --- Umschaltbarer Ton für die Schlussformel ---
+\lettermode{formal} % formal oder friendly
 
 % --- Kundennummer. Weitere Optionen: yourref, myref, yourmail, invoice ---
 \setkomavar{customer}{00001}

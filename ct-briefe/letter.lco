@@ -23,9 +23,10 @@
   backaddress=true,      % Rücksendeadresse für Fensterbriefumschläge, Default: true
   headsepline=false,     % Trennlinie zur Kopfzeile, oberhalb der Seitenzahl, ab Seite 2
   footsepline=false,     % Trennlinie zur Fußzeile, oberhalb der Seitenzahl, ab Seite 2
+  parskip=half,          % Keine Einrückung am Absatzbeginn, dafür kleine Abstände
 }
 % Trennzeichen innerhalb der Rücksendeadresse
-\setkomavar{backaddressseparator}{~{$\vcenter{\hbox{\scalebox{0.5}{$\bullet$}}}$} }
+\setkomavar{backaddressseparator}{~\textperiodcentered~}
 \renewcommand*{\pagemark}{\thepage} % Format der Seitenzahl
 
 % --- Feste Absenderangaben ---
@@ -39,14 +40,26 @@ Beutelsend 1\\
 \setkomavar{fromurl}{bilbo-beutlin.auenland}
 
 % --- Variiere die Schlussformel je nach Tonfall ---
-\ifformal
-  \newcommand{\myclosing}{Mit freundlichen Grüßen}
-  \setkomavar{signature}{\usekomavar{fromname} \\ Ringträger}
-  \setplength{sigbeforevskip}{5\baselineskip} % Größerer Abstand zwischen Grußformel und Name für die Unterschrift
-\else
-  \newcommand{\myclosing}{Liebe Grüße}
+\newcommand*\lettermode[1]{%
+  \csname lettermode@#1\endcsname
+}
+
+\newcommand*\lettermode@formal{%
+  % Grußformel
+  \newcommand\myclosing{Mit freundlichen Grüßen}
+
+  % Unterschrift
+  \setkomavar{signature}{%
+   \vspace{5\baselineskip}\\
+   \rule{5cm}{0.5pt}\\
+   \usekomavar{fromname}%
+  }
+}
+
+\newcommand*\lettermode@friendly{%
+  \newcommand\myclosing{Liebe Grüße}
   \setkomavar{signature}{Bilbo}
-\fi
+}
 
 % --- Fußzeile: z.B. Bankdaten ---
 
@@ -57,8 +70,5 @@ Beutelsend 1\\
         \usekomavar{frombank}}}
     \end{center}
 }
-
-% --- Feinjustierung ---
-\setlength{\parindent}{0pt} % Keine Absatzeinzüge im Brieftext
 
 % Ende der .lco-Datei
