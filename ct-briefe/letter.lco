@@ -5,39 +5,40 @@
 
 % --- Weitere Pakete ---
 \usepackage[ngerman]{babel} % für deutsche Befehle im Text, zB Datum
-\RequirePackage{graphicx}   % für scalebox im Footer
 \usepackage{lipsum}         % für Blindtext
 
 % --- Seitenlayout und Briefparameter ---
 \KOMAoptions{%
-  paper=a4,              % Papierformat
+  paper=a4,              % Papierformat. Default: a4
+  paper=portrait,        % Layout: Hochformat. Default: portrait
   fontsize=14pt,         % Schriftgröße. Default: 12pt
+  parskip=half,          % Keine Einrückung am Absatzbeginn, dafür kleine Abstände
+  foldmarks=true,        % Faltmarken anzeigen
   pagenumber=botright,   % Position der Seitenzahl, Default: botcenter
   fromalign=right,       % Absender rechtsbündig, Default: left
   fromrule=afteraddress, % Linie unter Absender. Optionen: afteradress, aftername, off (default)
-  addrfield=true,        % Adressfeld für Fensterumschläge setzen
-  foldmarks=true,        % Faltmarken anzeigen
-  subject=beforeopening, % Betreff vor der Anrede platzieren
   fromphone,             % zeige Telefonnummer in Absenderfeld
   fromemail,             % zeige E-Mail-Adresse in Absenderfeld
+  addrfield=true,        % Adressfeld für Fensterumschläge setzen (Adressat und Absender), Default: true
   backaddress=true,      % Rücksendeadresse für Fensterbriefumschläge, Default: true
-  headsepline=false,     % Trennlinie zur Kopfzeile, oberhalb der Seitenzahl, ab Seite 2
-  footsepline=false,     % Trennlinie zur Fußzeile, oberhalb der Seitenzahl, ab Seite 2
-  parskip=half,          % Keine Einrückung am Absatzbeginn, dafür kleine Abstände
+  subject=beforeopening, % Betreff vor der Anrede platzieren, Default: beforeopening
 }
+
 % Trennzeichen innerhalb der Rücksendeadresse
-\setkomavar{backaddressseparator}{~\textperiodcentered~}
-\renewcommand*{\pagemark}{\thepage} % Format der Seitenzahl
+\setkomavar{backaddressseparator}{~\textperiodcentered~} % Trennzeichen zwischen den Elementen des Absenders im Fensterumschlag
+\renewcommand*{\pagemark}{\thepage} % Format der Seitenzahl: Nur Seitenzahl ohne "Seite"
 
 % --- Feste Absenderangaben ---
 \setkomavar{fromname}{Bilbo Beutlin}
-\setkomavar{fromaddress}{%
-Beutelsend 1\\
-12345 Hobbingen}
+\setkomavar{fromaddress}{Beutelsend 1\\12345 Hobbingen}
 \setkomavar{fromemail}{bilbo@auenland.me}
 \setkomavar{fromphone}{+49\,123\,456789}
 \setkomavar{fromfax}{+49\,123\,456789}
 \setkomavar{fromurl}{bilbo-beutlin.auenland}
+
+% --- Ort und Datum ---
+\setkomavar{place}{Hobbingen}
+\setkomavar{date}[Datum A.Z.]{\today} %Default Bezeichnung: "Datum"
 
 % --- Variiere die Schlussformel je nach Tonfall ---
 \newcommand*\lettermode[1]{%
@@ -64,6 +65,7 @@ Beutelsend 1\\
 % --- Fußzeile: z.B. Bankdaten ---
 
 \setkomavar{frombank}{Mittelerde Bank\\IBAN:~DE00\,0000\,0000\,0000\,0000\,00\\BIC:~MUBADEAB000}
+
 \setkomavar{firstfoot}{ % Stil der Fußzeile für die erste Seite festlegen
     \begin{center}
         \scriptsize{\textsf{\def\\{\usekomavar{backaddressseparator}}
