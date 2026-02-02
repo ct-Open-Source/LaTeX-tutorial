@@ -1,4 +1,4 @@
-% letter.lco
+% myletter.lco
 
 % --- Zeichencodierung und Schriftkodierung (für pdfLaTeX) ---
 \usepackage[T1]{fontenc}    % Korrekte Silbentrennung und Ausgabe
